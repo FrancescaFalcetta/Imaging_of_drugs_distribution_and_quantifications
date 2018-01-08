@@ -6,7 +6,7 @@ This repository accompanies the article: Mass Spectrometry Imaging of drugs dist
 There are four main functions in our pipeline:
 a) getionimage  
 b) intensity image production  
-c) LOB and LOD calculation 
+c) LOB and LOD calculation
 d) quantification
  
 Figure 1.The proposed MSI data analysis pipeline
