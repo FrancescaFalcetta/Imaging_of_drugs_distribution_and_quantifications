@@ -116,6 +116,8 @@ Drug quantitative images and a table reporting the number of pixels of the tissu
 
 ![Figure 5.](Images/figure5.tif)
 
+The raw data are available upon request
+
 ### Contact
 email: Francesca Falcetta (francesca.falcetta@marionegri.it)
 
