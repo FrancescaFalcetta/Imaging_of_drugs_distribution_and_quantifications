@@ -8,7 +8,7 @@ There are four main functions in our pipeline:
 * c) LOB and LOD calculation
 * d) quantification
 
-![Figure 1.The proposed MSI data analysis pipeline](images/figure1.tif)
+![Figure 1.The proposed MSI data analysis pipeline](Images/figure1.tif)
 
 Reading raw data and preprocessing steps are implemented in the getionimage function.  The intensity image production function gives the drug intensity image and tissue mask. The quantification function plots the calibration curve,  quantifies the drug into the tissue and produces quantitative images.
 
@@ -43,7 +43,7 @@ python getionimage.py -locIS 289.06 289.34 -locTiss 281.20 281.50  -hws 3 -d_dru
 ### Outputs
 Intensity MATRIX of drug, IS and tissue and a figure of drug intensity, tissue mask and drug mask.
 
-![Figure 2. This figure is only to verify the goodness of ion extraction. Best figure will be generated with intensity image production.](images/figure2.tif)
+![Figure 2. This figure is only to verify the goodness of ion extraction. Best figure will be generated with intensity image production.](Images/figure2.tif)
 
 
 ## intensity image production  
@@ -60,7 +60,7 @@ python intensity_image_production.py -co inferno -fs 1.5
 
 ### Outputs
 Intensity MATRIX of drug, IS and tissue and a figure of drug intensity, figure of drug mask, and figure of tissue mask.
-![Figure 3a. drug intensity](images/figure3a.tif) |![Figure 3b. drug mask](images/figure3b.tif)|![Figure 3c. tissue mask](images/figure3c.tif)
+![Figure 3a. drug intensity](Images/figure3a.tif) |![Figure 3b. drug mask](Images/figure3b.tif)|![Figure 3c. tissue mask](Images/figure3c.tif)
    
 ## lob and lod calculation 
 This script calculates the LOD and LOB in a calibration curve sample.
@@ -87,7 +87,7 @@ LOB e LOD value printed on video.
 Script to quantify the drug concentration into the samples. 
 
 The localization of spots can be found opening the calibration_drug.msk file and/or the calibation.sim file with excel® or another program to identify the start and end rows and columns as shown in the figure as show in the example below.
-![Figure4](images/figure4.tif)
+![Figure4](Images/figure4.tif)
 
 ### Inputs
 * -lob: LOB value used as threshold to obtain the drug_mask;
@@ -114,7 +114,7 @@ The file name of calibration curve must contain “calibration” inside it (not
 ### Output 
 Drug quantitative images and a table reporting the number of pixels of the tissue, of the number of pixels above the Lob in the drug image and the mean drug concentration.
 
-![Figure 5.](images/figure5.tif)
+![Figure 5.](Images/figure5.tif)
 
 ### Contact
 email: Francesca Falcetta (francesca.falcetta@marionegri.it)
