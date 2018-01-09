@@ -1,5 +1,4 @@
-# Preprocessing_and_quantification_MSI
-Imaging of drugs distribution and quantifications
+# Imaging of drugs distribution and quantifications
 
 This repository accompanies the article: Mass Spectrometry Imaging of drugs distribution in different tumour models: preprocessing and quantification issues.  It provides a reference for implementation of our pipeline for production of drug distribution and drug quantification images. At the moment, our pipeline accepts data from the single analytical platform, i.e. analyze 7.5.
 
