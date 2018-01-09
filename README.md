@@ -3,10 +3,10 @@
 This repository accompanies the article: Mass Spectrometry Imaging of drugs distribution in different tumour models: preprocessing and quantification issues.  It provides a reference for implementation of our pipeline for production of drug distribution and drug quantification images. At the moment, our pipeline accepts data from the single analytical platform, i.e. analyze 7.5.
 
 There are four main functions in our pipeline:
-– o *  a) getionimage  
-– o *  b) intensity image production  
-– o * c) LOB and LOD calculation
-– o * d) quantification
+*  a) getionimage  
+*  b) intensity image production  
+* c) LOB and LOD calculation
+* d) quantification
 
 ![Figure 1.The proposed MSI data analysis pipeline](images/figure1.tif)
 
@@ -24,18 +24,18 @@ R packages: MALDIquantForeign, radiomics
 Getionimage extracts ions  to be detected for each pixel as described in article. 
 
 ### Inputs
-– o * -locIS: m/z range where to find the internal standard (IS) peak; 
-– o * -d_drug:  m/z difference between IS and drug peaks;
-– o * -locTiss: m/z range where to find the tissue peak;	
-– o * -hws and -hws_t:  half -width size of IS, drug peaks (-hws) and tissue peak (-hws_t, used only when diefferent from -hws);
-– o * -fr: Radius of the median filter
-– o * -th_mask: threshold value for the drug mask, given as input or automatically calculated from control sample. 
-– o * -fs: maximum intensity in the color map; 
-– o * -a:  modality to calculate the peak area. Options:   
-	– o * a=[]: No background subtraction (method A in the article)
-	– o * -a range: trapezoidal background subtraction (method B in the article)
-	– o * -a min:   rectangular background subtraction (method C in the article)
-– o * -rp and -cp : size (number of rows and columns) of slice's edge used to estimate the plate intensity of the tissue ion peak; 
+* -locIS: m/z range where to find the internal standard (IS) peak; 
+* -d_drug:  m/z difference between IS and drug peaks;
+* -locTiss: m/z range where to find the tissue peak;	
+* -hws and -hws_t:  half -width size of IS, drug peaks (-hws) and tissue peak (-hws_t, used only when diefferent from -hws);
+* -fr: Radius of the median filter
+* -th_mask: threshold value for the drug mask, given as input or automatically calculated from control sample. 
+* -fs: maximum intensity in the color map; 
+* -a:  modality to calculate the peak area. Options:   
+	** a=[]: No background subtraction (method A in the article)
+	** -a range: trapezoidal background subtraction (method B in the article)
+	** -a min:   rectangular background subtraction (method C in the article)
+* -rp and -cp : size (number of rows and columns) of slice's edge used to estimate the plate intensity of the tissue ion peak; 
 
 ### Example
 python getionimage.py -locIS 289.06 289.34 -locTiss 281.20 281.50  -hws 3 -d_drug 5.03138 -fs 1.5 -a range
@@ -50,10 +50,10 @@ Intensity MATRIX of drug, IS and tissue and a figure of drug intensity, tissue m
 This script produces the images of drug intensity distribution, drug mask and tissue mask.
 
 ### Inputs
-– o * -co: choice of color map type; 
-– o * -fs : maximum intensity in the color map 
-– o * -rp and -cp : size (number of rows and columns) of slice's edge used to estimate the plate intensity of the tissue ion peak;
-– o * -th_mask: threshold value for the drug mask, given as input or automatically calculated from control sample. 
+* -co: choice of color map type; 
+* -fs : maximum intensity in the color map 
+* -rp and -cp : size (number of rows and columns) of slice's edge used to estimate the plate intensity of the tissue ion peak;
+* -th_mask: threshold value for the drug mask, given as input or automatically calculated from control sample. 
 
 ### Example
 python intensity_image_production.py -co inferno -fs 1.5
@@ -71,8 +71,8 @@ The localization of spots can be found opening the calibration_drug.msk file and
  
 
 ### Inputs
--sp: localization of spots of the calibration curve into the tissue, i.e. the row and column numbers of the corners (four numbers ) for each spot;  
--c : drug concentration of calibration spots;
+* -sp: localization of spots of the calibration curve into the tissue, i.e. the row and column numbers of the corners (four numbers ) for each spot;  
+* -c : drug concentration of calibration spots;
 The order of localization and concentration of spot must be the same.
 
 ### Example
@@ -90,22 +90,22 @@ The localization of spots can be found opening the calibration_drug.msk file and
 ![Figure4](images/figure4.tif)
 
 ### Inputs
--lob: LOB value used as threshold to obtain the drug_mask;
--lod: LOD value;
--sp: localization of spots of the calibration curve into the tissue, i.e. the row and column numbers of the corners (four numbers ) for each spot;  
--c : drug concentration of calibration spots;
+* -lob: LOB value used as threshold to obtain the drug_mask;
+* -lod: LOD value;
+* -sp: localization of spots of the calibration curve into the tissue, i.e. the row and column numbers of the corners (four numbers ) for each spot;  
+* -c : drug concentration of calibration spots;
 The order of localization and concentration of spot must be the same.
--w: type of weight to fit calibration curve:  
--w 1: 1/y2
--w 2: 1/x2  
--co: choice of color map type; 
--fs : maximum intensity in the color map 
--rp and -cp : size (number of rows and columns) of slice's edge used to estimate the plate intensity of the tissue ion peak;
--mw: drug molecular weight (i.e 853 for PTX);
--um: unit of measure of the mean drug concentration, default value is ug/g;
--uf: unit of measure of the drug concentration in the figure, default value is pg/pixel;
--v: pixel area (mm2);
--th_s: tissue slice thickness (mm).
+* -w: type of weight to fit calibration curve:  
+* -w 1: 1/y2
+* -w 2: 1/x2  
+* -co: choice of color map type; 
+* -fs : maximum intensity in the color map 
+* -rp and -cp : size (number of rows and columns) of slice's edge used to estimate the plate intensity of the tissue ion peak;
+* -mw: drug molecular weight (i.e 853 for PTX);
+* -um: unit of measure of the mean drug concentration, default value is ug/g;
+* -uf: unit of measure of the drug concentration in the figure, default value is pg/pixel;
+* -v: pixel area (mm2);
+* -th_s: tissue slice thickness (mm).
 
 ### Example
 python quantification.py -lob 0.0120 -lod 0.24  -w 1 -mw 853 -fs 5 -co inferno -sp 6 21 27 43 25 40 28 43 50 65 23 41 11 25 7 22 30 43 4 18 -c 10 5 2.5 1 0.5 0 
