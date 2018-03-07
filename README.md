@@ -1,6 +1,6 @@
 # Imaging of drugs distribution and quantifications
 
-This repository accompanies the article: Mass Spectrometry Imaging of drugs distribution in different tumour models: preprocessing and quantification issues.  It provides a reference for implementation of our pipeline for production of drug distribution and drug quantification images. At the moment, our pipeline accepts data from the single analytical platform, i.e. analyze 7.5.
+This repository accompanies the article: A data preprocessing approach for Mass Spectrometry Imaging. Analytical improvements for quantitative drug distribution studies in different tumor models.  It provides a reference for implementation of our pipeline for production of drug distribution and drug quantification images. At the moment, our pipeline accepts data from the single analytical platform, i.e. analyze 7.5.
 
 There are four main functions in our pipeline:
 *  a) getionimage  
